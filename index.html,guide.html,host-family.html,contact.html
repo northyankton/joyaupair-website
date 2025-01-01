@@ -1,0 +1,42 @@
+    <!-- 页面内容 -->
+    </div>
+
+    <script>
+        function toggleMenu() {
+            // 保留原有的菜单切换功能
+        }
+    </script>
+
+    <script>
+        // 加载侧边栏
+        fetch('/components/sidebar.html')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to load sidebar');
+                }
+                return response.text();
+            })
+            .then(data => {
+                document.body.insertAdjacentHTML('beforeend', data);
+            })
+            .catch(error => {
+                console.error('Error loading sidebar:', error);
+            });
+
+        // 加载页脚
+        fetch('/components/footer.html')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to load footer');
+                }
+                return response.text();
+            })
+            .then(data => {
+                document.body.insertAdjacentHTML('beforeend', data);
+            })
+            .catch(error => {
+                console.error('Error loading footer:', error);
+            });
+    </script>
+</body>
+</html> 
